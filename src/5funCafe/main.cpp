@@ -34,9 +34,11 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	}
 	InitModules(hInstance);
 	CWndMain* pWnd = new CWndMain;
+	HWND hMainWnd = pWnd->Create(NULL);
 	pWnd->CenterWindow();
 	bool bShow = wcscmp(lpCmdLine, L"/bootrun") != 0;
 	pWnd->ShowWindow(bShow, bShow);
+	CPaintManagerUI::MessageLoop();//message_loop->Run();
 	ExitModules();
 	CPaintManagerUI::Term();
 	CloseHandle(hMutex);
