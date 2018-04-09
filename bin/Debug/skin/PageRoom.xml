@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
 <PageRoomRoot>
-	<TabLayout name="tab_gamehall">
+	<TabLayout name="tab_gamehall" selectedid="2">
 		<VerticalLayout><!--加载中-->
 			<Control />
 			<Gif width="60" height="60" padding="250,0,0,0" imagefolder="public\loading" imagecount="24" timeelapse="41" />
@@ -26,13 +26,14 @@
 			</HorizontalLayout>
 			<Control />
 		</VerticalLayout>
-		<VerticalLayout bkcolor="#FF1C1C1C">
+		<VerticalLayout>
 			<TileLayout name="tile_room" padding="20,0,4,0" itemsize="382,230" vscrollbar="true"/>
-			<HorizontalLayout height="90" bkcolor="#FF161616">
+			<HorizontalLayout height="90">
 				<Button name="btn_room_create" width="264" height="43" text="新建房间" font="2" textcolor="#FFFFCC00" bkimage="PageGameRoom\btn_bk.png" showcursor="true"/>
 				<Control width="10"/>
 				<Button name="btn_room_play" width="264" height="43" text="快速加入" font="2" textcolor="#FFFFCC00" bkimage="PageGameRoom\btn_bk.png" showcursor="true"/>
 			</HorizontalLayout>
+			<Control height="10"/>
 		</VerticalLayout>
 	</TabLayout>
 </PageRoomRoot>

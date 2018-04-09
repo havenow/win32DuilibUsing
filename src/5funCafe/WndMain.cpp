@@ -52,6 +52,7 @@ LPCWSTR CWndMain::GetXmlPath() const
 void CWndMain::InitWindow()
 {
 	CWndBase::InitWindow();
+	m_pLblGameName->SetText(L"È­»Ê97");
 }
 
 void CWndMain::OnFinalMessage(HWND hWnd)

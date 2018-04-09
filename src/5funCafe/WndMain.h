@@ -52,7 +52,7 @@ protected:
 		DECLARE_MSG(WM_COPYDATA, OnMsgCopyData)
 		BEGIN_USER_MSG
 			DECLARE_USER_MSG(WM_MAINWND_MSG_GAMEHALL, OnMsgGameHall)
-			DECLARE_USER_MSG(WM_ENUMWND_MSG_PAGE_ROOM, OnMsgGameHall)
+			DECLARE_USER_MSG(WM_MAINWND_MSG_PAGE_ROOM, OnMsgPageRoom)
 		END_USER_MSG
 	END_MSG_MAP()
 
@@ -60,6 +60,11 @@ protected:
 	LRESULT OnMsgPageRoom(WPARAM wParam, LPARAM lParam);
 	LRESULT OnMsgCopyData(WPARAM wParam, LPARAM lParam, BOOL &bHandled);
 
+
+	BEGIN_INIT_CTRL()
+		DECLARE_CTRL(m_pLblGameName, L"lbl_game_name")
+		DECLARE_CTRL(m_pLblUserID, L"lbl_user_id")
+	END_INIT_CTRL()
 
 	BEGIN_BIND_CTRL()
 		BIND_CTRL(L"btn_sys_close", &CWndMain::OnNotifyBtnClose)
@@ -79,5 +84,7 @@ protected:
 private:
 	IPage *m_pPageRoom;
 	IPage *m_pPageWeb;
+	CControlUI *m_pLblGameName;
+	CControlUI *m_pLblUserID;
 };
 

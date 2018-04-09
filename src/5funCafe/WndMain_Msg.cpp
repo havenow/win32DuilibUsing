@@ -7,7 +7,13 @@ LRESULT CWndMain::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT lResule = 0;
 	if (ProcessMsg(uMsg, wParam, lParam, lResule))
+	{
+		if (uMsg > WM_MAINWND_MSG_TASK_BEGIN&&uMsg < WM_MAINWND_MSG_TASK_END)
+		{
+
+		}
 		return lResule;
+	}
 	return CWndBase::HandleMessage(uMsg, wParam, lParam);
 }
 
