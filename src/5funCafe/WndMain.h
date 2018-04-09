@@ -8,7 +8,8 @@ public:
 	~CWndMain();
 
 protected:
-
+	virtual LPCWSTR GetWndName()const;
+	virtual LPCWSTR GetXmlPath()const;
 
 private:
 

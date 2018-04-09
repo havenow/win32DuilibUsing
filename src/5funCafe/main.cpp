@@ -3,10 +3,13 @@
 
 #include "stdafx.h"
 #include "5funCafe.h"
-
+#include "WndMain.h"
 
 bool InitLog();
 bool CheckInstance(HANDLE& hMutex);
+bool InitDuilibRes(HINSTANCE hInstance);//初始化界面库资源
+bool InitModules(HINSTANCE hInstance);//初始化其他模块
+void ExitModules();
 int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPTSTR    lpCmdLine,
@@ -21,9 +24,23 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		return 0;
 	}
 	PublicLib::EnableDebugPrivilege();
-
 	InitLog();
-
+	CoInitialize(NULL);
+	if (!InitDuilibRes(hInstance))
+	{
+		MessageBox(NULL, L"初始化界面库资源失败！", L"出错了：", MB_OK | MB_ICONERROR);
+		CloseHandle(hMutex);
+		return 0;
+	}
+	InitModules(hInstance);
+	CWndMain* pWnd = new CWndMain;
+	pWnd->CenterWindow();
+	bool bShow = wcscmp(lpCmdLine, L"/bootrun") != 0;
+	pWnd->ShowWindow(bShow, bShow);
+	ExitModules();
+	CPaintManagerUI::Term();
+	CloseHandle(hMutex);
+	CoUninitialize();
 	return 0;
 }
 
@@ -55,4 +72,40 @@ bool CheckInstance(HANDLE& hMutex)
 		return false;
 	}
 	return false;
+}
+
+bool InitDuilibRes(HINSTANCE hInstance)
+{
+	CPaintManagerUI::SetInstance(hInstance);
+	CWndShadow::Initialize(hInstance);
+#ifdef _DEBUG
+	wstring strDir = L"Skin";
+	wstring wstrResoucePath = CPaintManagerUI::GetInstancePath();
+	wstrResoucePath += strDir;
+	CPaintManagerUI::SetResourcePath(wstrResoucePath.c_str());
+#else
+	BYTE* pSkinBuffer = NULL;
+	HRSRC hRes = ::FindResource(NULL, MAKEINTRESOURCE(IDR_DAT1), L"DAT");
+	HGLOBAL hGlobal = ::LoadResource(NULL, hRes);
+	DWORD dwSkinBufferSize = ::SizeofResource(NULL, hRes);
+	BYTE* pResource = (BYTE*)::LockResource(hGlobal);
+	CPaintManagerUI::SetResourceZip(pResource, dwSkinBufferSize);
+#endif
+	return true;
+}
+
+bool InitModules(HINSTANCE hInstance)
+{
+	//初始化全局变量
+	OUTPUT_XYLOG(LEVEL_INFO, L"初始化全局数据模块");
+	//...
+	OUTPUT_XYLOG(LEVEL_INFO, L"初始化任务中心模块");
+	//...
+	return true;
+}
+
+void ExitModules()
+{
+	//....
+	OUTPUT_XYLOG(LEVEL_INFO, L"反初始化模块完成");
 }
