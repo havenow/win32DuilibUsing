@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1280,720" caption="0,0,0,50">
+	<Font name="微软雅黑" size="12" />
+	<Font name="微软雅黑" size="14" />
+	<Font name="微软雅黑" size="16" />
+	<Font name="微软雅黑" size="18" />
+	<Font name="微软雅黑" size="20" />
+	<Font name="微软雅黑" size="10" />
+	<Font name="微软雅黑" size="24" />
+	<Font name="微软雅黑" size="12" strikeout="true"/>
+	<Font name="宋体" size="12" />
+	<Font name="微软雅黑" size="16" bold="true"/><!--9-->
+	<Font name="宋体" size="14" />
+	
+	<Default name="HScrollBar" value="showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;scroll_bk1.png&apos; corner=&apos;1,1,1,1&apos;&quot;  railnormalimage=&quot;file=&apos;scroll_bk1.png&apos; corner=&apos;1,1,1,1&apos;&quot; bknormalimage=&quot;file=&apos;scroll_fore1.png&apos; corner=&apos;1,1,1,1&apos;&quot; height=&quot;4&quot; "/>
+	
+	
+	<VerticalLayout bkcolor="#FFEFEFEF">
+		<HorizontalLayout height="50" bkcolor="#FF353335">
+			<Control width="6"/>
+			<VerticalLayout width="37" height="37" padding="0,6,0,0" >
+				<Button name="lbl_user_ico" float="true" pos="0,0,0,0" width="37" height="37" bkimage="sysbtn\logo.png" showcursor="true" enabled="false"/>
+				<Control float="true" pos="0,0,0,0" width="37" height="37" bkimage="public/29.png" mouse="flase"/>
+			</VerticalLayout>
+			<Control width="10"/>
+			<Button name="btn_user_name" font="0" align="left" valign="center" width="88" textcolor="#FFFFCC00" showcursor="true" enabled="false" endellipsis="true" />
+			<Control width="14"/>
+			<Button name="btn_top_back" tooltip="后退" enabled="false" showcursor="true" width="9" height="15" padding="0,17,0,0" normalimage="sysbtn\btn_left_nor.png" hotimage="sysbtn\btn_left_hot.png" pushedimage="sysbtn\btn_left_hot.png" disabledimage="sysbtn\btn_left_dis.png"/>
+			<Control width="14"/>
+			<Button name="btn_top_prev" tooltip="前进" enabled="false" showcursor="true" width="9" height="15" padding="0,17,0,0" normalimage="sysbtn\btn_right_nor.png" hotimage="sysbtn\btn_right_hot.png" pushedimage="sysbtn\btn_right_hot.png" disabledimage="sysbtn\btn_right_dis.png"/>
+			<Control width="14"/>
+			<Button name="btn_top_refresh" tooltip="刷新" enabled="false" showcursor="true" width="15" height="14" padding="0,18,0,0" normalimage="sysbtn\btn_refresh_nor.png" hotimage="sysbtn\btn_refresh_hot.png" pushedimage="sysbtn\btn_refresh_hot.png" disabledimage="sysbtn\btn_refresh_dis.png"/>
+			<Control width="14"/>
+			<VerticalLayout width="290">
+				<Edit name="edit_top_search" font="0" textcolor="#FF7D7D7D" float="true" pos="0,10,0,0" width="290" height="30" textpadding="10,6,30,5" bkimage="sysbtn\edit_bk.png"showdefmenu="true" nativebkcolor="#00000000" deftext="寻找你喜欢的游戏" deftextcolor="#FF7D7D7D" maxchar="20"/><!--focusedimage="sysbtn\edit_hot.png" -->
+				<Button name="btn_game_search" tooltip="搜索" float="true" pos="260,18,0,0" width="16" height="15" normalimage="sysbtn\btn_search_nor.png" hotimage="sysbtn\btn_search_hot.png" pushedimage="sysbtn\btn_search_hot.png"/>
+			</VerticalLayout>
+			<Control />
+			<VerticalLayout width="331">
+				<Control height="5"/>
+				<HorizontalLayout height="40">
+					<Control />
+					<Button name="btn_feedback" tooltip="意见反馈" width="73" height="20" padding="0,12,0,0" normalimage="sysbtn\btn_feedback_nor.png" hotimage="sysbtn\btn_feedback_hot.png" pushedimage="sysbtn\btn_feedback_hot.png" showcursor="true"/>
+					<Control width="14"/>
+					<ButtonGif name="btn_weal" tooltip="福利中心" width="38" height="40" GifFile="sysbtn\weal.gif" showcursor="true"/>
+					<Control width="14"/>
+					<VerticalLayout width="30">
+						<Button name="btn_load" tooltip="下载" float="true" pos="0,12,0,0" width="21" height="19" bkimage="sysbtn\btn_load_nor.png"/>
+						<Label name="lbl_load_count" textcolor="#FF2d3548" font="5" float="true" pos="16,8,0,0" width="14" height="14" bkimage="sysbtn\count.png" align="center" valign="center" visible="false" mouse="false"/>
+					</VerticalLayout>
+					<Control width="14"/>
+					<Button name="btn_setting" tooltip="设置" width="14" height="14" padding="0,15,0,0" normalimage="file='sysbtn\btn_setting_nor.png' dest='1,1,13,12'" hotimage="file='sysbtn\btn_setting_hot.png' dest='1,1,13,12'" pushedimage="file='sysbtn\btn_setting_hot.png' dest='1,1,13,12'" />
+					<Control width="20"/>
+					<Button name="btn_sys_min" tooltip="最小化" width="14" height="14" padding="0,15,0,0" normalimage="file='sysbtn\sys_min_nor.png' dest='1,6,13,7'" hotimage="file='sysbtn\sys_min_hot.png' dest='1,6,13,7'" pushedimage="file='sysbtn\sys_min_hot.png' dest='1,6,13,7'" />	
+					<Control width="20"/>
+					<Button name="btn_sys_close" tooltip="关闭" width="14" height="14" padding="0,15,0,0" normalimage="file='sysbtn\btn_close_nor.png' dest='2,2,12,12'" hotimage="file='sysbtn\btn_close_hot.png' dest='2,2,12,12'" pushedimage="file='sysbtn\btn_close_hot.png' dest='2,2,12,12'" />
+					<Control width="10"/>
+				</HorizontalLayout>
+			</VerticalLayout>
+		</HorizontalLayout>
+		<Control height="1" bkcolor="#FF2B2B2B"/>
+		<HorizontalLayout>
+			<VerticalLayout><!--1137 * 680-->
+				<TabLayout name="tab_main">
+					<HorizontalLayout>
+						<Control width="10" />
+						<TabLayout name="tab_home_game" width="205">
+							<VerticalLayout name="list_rencent" vscrollbar="true">
+								<Control height="28" />
+								<Label text="最近启动" height="24" textcolor="#FF000000" font="3" align="left" valign="top"/>
+								<Control height="16" />
+							</VerticalLayout>
+							<VerticalLayout name="list_recommand" vscrollbar="true">
+								<Control height="28" />
+								<Label text="推荐安装" height="24" textcolor="#FF000000" font="3" align="left" valign="top"/>
+								<Control height="16" />
+							</VerticalLayout>
+						</TabLayout>
+						<Control width="1" bkcolor="#FFDDDDE4"/>
+						<PageHome />
+					</HorizontalLayout>
+					<HorizontalLayout>
+						<Control width="10" />
+						<VerticalLayout width="195" name="list_game_tab" vscrollbar="true">
+							<Control height="30" />
+							<Label text="游戏库" height="24" textcolor="#FF000000" font="3" align="left" valign="top"/>
+							<Control height="16" />
+						</VerticalLayout>
+						<Control width="10" />
+						<Control width="1" bkcolor="#FFDDDDE4"/>
+						<PageApp />
+					</HorizontalLayout>
+					<HorizontalLayout><!--对战大厅-->
+						<TabLayout name="tab_duizhan">
+							<PageGameHallWeb />
+							<PageGameRoom />
+						</TabLayout>
+					</HorizontalLayout>
+					<PageLocalGames />
+					<PageContest />
+				</TabLayout>
+			</VerticalLayout>
+		</HorizontalLayout>
+	</VerticalLayout>
+	
+</Window>

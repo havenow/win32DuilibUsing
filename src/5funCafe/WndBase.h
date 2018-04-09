@@ -9,29 +9,29 @@ protected:							\
 
 #define DECLARE_CTRL_TYPE(ptr,cls,name)					\
 	(ptr = dynamic_cast<cls*>(m_pm.FindControl(name)));	\
-	ASSERT(ptr)
+	ASSERT(ptr);
 
 #define DECLARE_CTRL_TYPE_PAGE(ptr,cls,name)			\
 	(ptr = dynamic_cast<cls*>(FindSubControl(name)));	\
-	ASSERT(ptr)
+	ASSERT(ptr);
 
 #define DECLARE_CTRL_BIND(ptr,cls,name,func)			\
 	(ptr = dynamic_cast<cls*>(m_pm.FindControl(name)));	\
 	ASSERT(ptr);										\
-	ptr->OnNotify += MakeDelegate(this, func)
+	ptr->OnNotify += MakeDelegate(this, func);
 
 #define DECLARE_CTRL_BIND_PAGE(ptr,cls,name,func)		\
 	(ptr = dynamic_cast<cls*>(FindSubControl(name)));	\
 	ASSERT(ptr);										\
-	ptr->OnNotify += MakeDelegate(this, func)
+	ptr->OnNotify += MakeDelegate(this, func);
 
 #define DECLARE_CTRL(ptr,name)			\
 	(ptr = m_pm.FindControl(name));		\
-	ASSERT(ptr)
+	ASSERT(ptr);
 
 #define DECLARE_CTRL_PAGE(ptr,name)		\
 	(ptr = FindSubControl(name));		\
-	ASSERT(ptr)
+	ASSERT(ptr);
 
 
 #define END_INIT_CTRL()				\
@@ -42,20 +42,21 @@ protected:							\
 protected:							\
 	virtual void BindControls()		\
 {									\
-	CControlUI* p = NULL
+	CControlUI* p = NULL;
 
 #define BIND_CTRL(name,func)		\
 	p = m_pm.FindControl(name);		\
 if (p)								\
-	p->OnNotify += MakeDelegate(this, func)
+	p->OnNotify += MakeDelegate(this, func);
 
 #define BIND_CTRL_PAGE(name,func)	\
 	p = FindSubControl(name);		\
 if (p)								\
-	p->OnNotify += MakeDelegate(this, func)
+	p->OnNotify += MakeDelegate(this, func);
 
 #define END_BIND_CTRL()				\
 }
+
 class CWndBase : 
 	public CWindowWnd,
 	public IDialogBuilderCallback,

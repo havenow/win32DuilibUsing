@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5funCafe.h" />
+    <ClInclude Include="MsgDefine.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -103,6 +104,8 @@
     </ClCompile>
     <ClCompile Include="WndBase.cpp" />
     <ClCompile Include="WndMain.cpp" />
+    <ClCompile Include="WndMain_Msg.cpp" />
+    <ClCompile Include="WndMain_UI.cpp" />
     <ClCompile Include="WndMgr.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -45,6 +45,9 @@
     <ClInclude Include="WndMgr.h">
       <Filter>UI\Wnd</Filter>
     </ClInclude>
+    <ClInclude Include="MsgDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -60,6 +63,12 @@
       <Filter>UI\Wnd</Filter>
     </ClCompile>
     <ClCompile Include="WndMgr.cpp">
+      <Filter>UI\Wnd</Filter>
+    </ClCompile>
+    <ClCompile Include="WndMain_Msg.cpp">
+      <Filter>UI\Wnd</Filter>
+    </ClCompile>
+    <ClCompile Include="WndMain_UI.cpp">
       <Filter>UI\Wnd</Filter>
     </ClCompile>
   </ItemGroup>

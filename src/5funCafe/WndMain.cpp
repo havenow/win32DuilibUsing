@@ -34,3 +34,8 @@ void CWndMain::OnFinalMessage(HWND hWnd)
 	//不调用，会导致消息循环不关闭，程序无法完全关闭
 	::PostQuitMessage(0);//CefQuitMessageLoop();
 }
+
+void CWndMain::Exit()
+{
+	Close();
+}
