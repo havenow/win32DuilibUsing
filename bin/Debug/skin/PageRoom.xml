@@ -28,10 +28,11 @@
 		</VerticalLayout>
 		<VerticalLayout>
 			<TileLayout name="tile_room" padding="20,0,4,0" itemsize="382,230" vscrollbar="true"/>
-			<HorizontalLayout height="90">
-				<Button name="btn_room_create" width="264" height="43" text="新建房间" font="2" textcolor="#FFFFCC00" bkimage="PageGameRoom\btn_bk.png" showcursor="true"/>
+			<Control height="27"/>
+			<HorizontalLayout height="53">
+				<Button name="btn_room_create" width="249" normalimage="room\btn_create_nor.png" hotimage="room\btn_create_hot.png" pushedimage="room\btn_create_hot.png" showcursor="true"/>
 				<Control width="10"/>
-				<Button name="btn_room_play" width="264" height="43" text="快速加入" font="2" textcolor="#FFFFCC00" bkimage="PageGameRoom\btn_bk.png" showcursor="true"/>
+				<Button name="btn_room_join" width="249" normalimage="room\btn_join_nor.png" hotimage="room\btn_join_hot.png" pushedimage="room\btn_join_hot.png" showcursor="true"/>
 			</HorizontalLayout>
 			<Control height="10"/>
 		</VerticalLayout>
