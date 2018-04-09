@@ -82,6 +82,9 @@
       <AdditionalLibraryDirectories>../../lib/$(Configuration)</AdditionalLibraryDirectories>
       <AdditionalDependencies>PublicLib.lib;Duilib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>..\..\Tool\7z.exe a .\res\skin.zip ..\..\bin\Debug\Skin\*</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
