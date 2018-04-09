@@ -2,10 +2,12 @@
 #include "WndMain.h"
 #include "PageWeb.h"
 #include "PageRoom.h"
+#include "PageEmulator.h"
 
 CWndMain::CWndMain()
 	: m_pPageRoom(NULL)
 	, m_pPageWeb(NULL)
+	, m_pPageEmulator(NULL)
 {
 	m_dwStyle = UI_WNDSTYLE_FRAME;
 }
@@ -29,13 +31,20 @@ CControlUI* CWndMain::CreateControl(LPCTSTR pstrClass)
 		m_pPageRoom = p;
 		return p;
 	}
+	if (wcscmp(pstrClass, L"PageEmulaotrRoot") == 0)
+	{
+		CPageEmulator* p = new CPageEmulator;
+		m_pPageEmulator = p;
+		return p;
+	}
 
 	CDialogBuilder dlgBuilder;
 	if (wcscmp(pstrClass, L"PageWeb") == 0)
 		return dlgBuilder.Create(L"PageWeb.xml", (UINT)0, this, &m_pm);
 	if (wcscmp(pstrClass, L"PageRoom") == 0)
 		return dlgBuilder.Create(L"PageRoom.xml", (UINT)0, this, &m_pm);
-
+	if (wcscmp(pstrClass, L"PageEmulator") == 0)
+		return dlgBuilder.Create(L"PageEmulator.xml", (UINT)0, this, &m_pm);
 }
 
 LPCWSTR CWndMain::GetWndName() const

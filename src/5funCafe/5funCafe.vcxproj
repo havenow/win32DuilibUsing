@@ -93,6 +93,7 @@
     <ClInclude Include="5funCafe.h" />
     <ClInclude Include="IPage.h" />
     <ClInclude Include="MsgDefine.h" />
+    <ClInclude Include="PageEmulator.h" />
     <ClInclude Include="PageRoom.h" />
     <ClInclude Include="PageWeb.h" />
     <ClInclude Include="Resource.h" />
@@ -104,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PageEmulator.cpp" />
     <ClCompile Include="PageRoom.cpp" />
     <ClCompile Include="PageWeb.cpp" />
     <ClCompile Include="stdafx.cpp">

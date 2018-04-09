@@ -60,6 +60,9 @@
     <ClInclude Include="PageWeb.h">
       <Filter>UI\Page</Filter>
     </ClInclude>
+    <ClInclude Include="PageEmulator.h">
+      <Filter>UI\Page</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -87,6 +90,9 @@
       <Filter>UI\Page</Filter>
     </ClCompile>
     <ClCompile Include="PageWeb.cpp">
+      <Filter>UI\Page</Filter>
+    </ClCompile>
+    <ClCompile Include="PageEmulator.cpp">
       <Filter>UI\Page</Filter>
     </ClCompile>
   </ItemGroup>

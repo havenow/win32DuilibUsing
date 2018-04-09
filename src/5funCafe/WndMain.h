@@ -84,6 +84,7 @@ protected:
 private:
 	IPage *m_pPageRoom;
 	IPage *m_pPageWeb;
+	IPage *m_pPageEmulator;
 	CControlUI *m_pLblGameName;
 	CControlUI *m_pLblUserID;
 };

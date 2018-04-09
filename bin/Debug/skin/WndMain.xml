@@ -43,8 +43,7 @@
 		<Control height="40"/>
 		<HorizontalLayout>
 			<Control width="40"/>
-			<VerticalLayout><!--模拟器-->
-			</VerticalLayout>
+			<PageEmulator />
 			<Control width="10"/>
 			<VerticalLayout width="510">
 				<PageWeb height="204"/>
