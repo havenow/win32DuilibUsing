@@ -91,7 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="5funCafe.h" />
+    <ClInclude Include="IPage.h" />
     <ClInclude Include="MsgDefine.h" />
+    <ClInclude Include="PageRoom.h" />
+    <ClInclude Include="PageWeb.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -101,6 +104,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PageRoom.cpp" />
+    <ClCompile Include="PageWeb.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

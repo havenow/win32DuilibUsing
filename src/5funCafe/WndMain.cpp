@@ -3,7 +3,10 @@
 
 
 CWndMain::CWndMain()
+	: m_pPageRoom(NULL)
+	, m_pPageWeb(NULL)
 {
+	m_dwStyle = UI_WNDSTYLE_FRAME;
 }
 
 
@@ -37,5 +40,9 @@ void CWndMain::OnFinalMessage(HWND hWnd)
 
 void CWndMain::Exit()
 {
+	if (m_pPageWeb)
+		m_pPageWeb->Exit();
+	if (m_pPageRoom)
+		m_pPageRoom->Exit();
 	Close();
 }

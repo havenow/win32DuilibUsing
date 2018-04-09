@@ -1,6 +1,6 @@
 #pragma once
 #include "MsgDefine.h"
-
+#include "IPage.h"
 
 #define BEGIN_MSG_MAP()	\
 protected: \
@@ -16,13 +16,18 @@ if (msg == uMsg) \
 	return bHandled; \
 }
 
+#define BEGIN_USER_MSG if (uMsg > WM_MAINWND_MSG_BEGIN) { \
+	switch (uMsg) \
+	{ \
+
+#define END_USER_MSG \
+	} \
+}
+
+
 //处理自定义消息
 #define DECLARE_USER_MSG(msg, fun) \
-if (uMsg > WM_MAINWND_MSG_BEGIN && msg == uMsg) \
-{ \
-	lResult = fun(wParam, lParam); \
-	return TRUE; \
-}
+	case msg: lResult = fun(wParam, lParam);
 
 #define END_MSG_MAP() \
 	return FALSE; \
@@ -45,10 +50,14 @@ protected:
 
 	BEGIN_MSG_MAP()
 		DECLARE_MSG(WM_COPYDATA, OnMsgCopyData)
-		DECLARE_USER_MSG(WM_MAINWND_MSG_GAMEHALL, OnMsgGameHall)
+		BEGIN_USER_MSG
+			DECLARE_USER_MSG(WM_MAINWND_MSG_GAMEHALL, OnMsgGameHall)
+			DECLARE_USER_MSG(WM_ENUMWND_MSG_PAGE_ROOM, OnMsgGameHall)
+		END_USER_MSG
 	END_MSG_MAP()
 
 	LRESULT OnMsgGameHall(WPARAM wParam, LPARAM lParam);
+	LRESULT OnMsgPageRoom(WPARAM wParam, LPARAM lParam);
 	LRESULT OnMsgCopyData(WPARAM wParam, LPARAM lParam, BOOL &bHandled);
 
 
@@ -68,6 +77,7 @@ protected:
 	void Exit();//程序退出唯一入口
 
 private:
-
+	IPage *m_pPageRoom;
+	IPage *m_pPageWeb;
 };
 

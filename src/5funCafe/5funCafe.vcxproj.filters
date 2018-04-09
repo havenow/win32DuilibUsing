@@ -19,6 +19,9 @@
     <Filter Include="UI\Wnd">
       <UniqueIdentifier>{358d9ea2-6498-40a7-b9dc-24069045aa2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\Page">
+      <UniqueIdentifier>{abc32c0f-74ef-4e22-a1bc-49a565eee48c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -48,6 +51,15 @@
     <ClInclude Include="MsgDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IPage.h">
+      <Filter>UI\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="PageRoom.h">
+      <Filter>UI\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="PageWeb.h">
+      <Filter>UI\Page</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -70,6 +82,12 @@
     </ClCompile>
     <ClCompile Include="WndMain_UI.cpp">
       <Filter>UI\Wnd</Filter>
+    </ClCompile>
+    <ClCompile Include="PageRoom.cpp">
+      <Filter>UI\Page</Filter>
+    </ClCompile>
+    <ClCompile Include="PageWeb.cpp">
+      <Filter>UI\Page</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
