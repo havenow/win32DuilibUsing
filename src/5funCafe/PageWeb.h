@@ -4,7 +4,7 @@
 
 
 class CPageWeb :
-	public CVerticalLayoutUI,
+	public CHorizontalLayoutUI,
 	public IPage
 {
 public:

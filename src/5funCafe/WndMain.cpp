@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "WndMain.h"
-
+#include "PageWeb.h"
+#include "PageRoom.h"
 
 CWndMain::CWndMain()
 	: m_pPageRoom(NULL)
@@ -14,6 +15,28 @@ CWndMain::~CWndMain()
 {
 }
 
+CControlUI* CWndMain::CreateControl(LPCTSTR pstrClass)
+{
+	if (wcscmp(pstrClass, L"PageWebRoot") == 0)
+	{
+		CPageWeb* p = new CPageWeb;
+		m_pPageWeb = p;
+		return p;
+	}
+	if (wcscmp(pstrClass, L"PageRoomRoot") == 0)
+	{
+		CPageRoom* p = new CPageRoom;
+		m_pPageRoom = p;
+		return p;
+	}
+
+	CDialogBuilder dlgBuilder;
+	if (wcscmp(pstrClass, L"PageWeb") == 0)
+		return dlgBuilder.Create(L"PageWeb.xml", (UINT)0, this, &m_pm);
+	if (wcscmp(pstrClass, L"PageRoom") == 0)
+		return dlgBuilder.Create(L"PageRoom.xml", (UINT)0, this, &m_pm);
+
+}
 
 LPCWSTR CWndMain::GetWndName() const
 {

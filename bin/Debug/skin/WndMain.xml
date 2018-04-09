@@ -15,7 +15,7 @@
 	<Default name="HScrollBar" value="showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file=&apos;scroll_bk1.png&apos; corner=&apos;1,1,1,1&apos;&quot;  railnormalimage=&quot;file=&apos;scroll_bk1.png&apos; corner=&apos;1,1,1,1&apos;&quot; bknormalimage=&quot;file=&apos;scroll_fore1.png&apos; corner=&apos;1,1,1,1&apos;&quot; height=&quot;4&quot; "/>
 	
 	
-	<VerticalLayout bkcolor="#FFEFEFEF">
+	<VerticalLayout bkcolor="#FF1C1C1C">
 		<HorizontalLayout height="50" bkcolor="#FF353335">
 			<Control width="6"/>
 			<VerticalLayout width="37" height="37" padding="0,6,0,0" >
@@ -24,17 +24,6 @@
 			</VerticalLayout>
 			<Control width="10"/>
 			<Button name="btn_user_name" font="0" align="left" valign="center" width="88" textcolor="#FFFFCC00" showcursor="true" enabled="false" endellipsis="true" />
-			<Control width="14"/>
-			<Button name="btn_top_back" tooltip="后退" enabled="false" showcursor="true" width="9" height="15" padding="0,17,0,0" normalimage="sysbtn\btn_left_nor.png" hotimage="sysbtn\btn_left_hot.png" pushedimage="sysbtn\btn_left_hot.png" disabledimage="sysbtn\btn_left_dis.png"/>
-			<Control width="14"/>
-			<Button name="btn_top_prev" tooltip="前进" enabled="false" showcursor="true" width="9" height="15" padding="0,17,0,0" normalimage="sysbtn\btn_right_nor.png" hotimage="sysbtn\btn_right_hot.png" pushedimage="sysbtn\btn_right_hot.png" disabledimage="sysbtn\btn_right_dis.png"/>
-			<Control width="14"/>
-			<Button name="btn_top_refresh" tooltip="刷新" enabled="false" showcursor="true" width="15" height="14" padding="0,18,0,0" normalimage="sysbtn\btn_refresh_nor.png" hotimage="sysbtn\btn_refresh_hot.png" pushedimage="sysbtn\btn_refresh_hot.png" disabledimage="sysbtn\btn_refresh_dis.png"/>
-			<Control width="14"/>
-			<VerticalLayout width="290">
-				<Edit name="edit_top_search" font="0" textcolor="#FF7D7D7D" float="true" pos="0,10,0,0" width="290" height="30" textpadding="10,6,30,5" bkimage="sysbtn\edit_bk.png"showdefmenu="true" nativebkcolor="#00000000" deftext="寻找你喜欢的游戏" deftextcolor="#FF7D7D7D" maxchar="20"/><!--focusedimage="sysbtn\edit_hot.png" -->
-				<Button name="btn_game_search" tooltip="搜索" float="true" pos="260,18,0,0" width="16" height="15" normalimage="sysbtn\btn_search_nor.png" hotimage="sysbtn\btn_search_hot.png" pushedimage="sysbtn\btn_search_hot.png"/>
-			</VerticalLayout>
 			<Control />
 			<VerticalLayout width="331">
 				<Control height="5"/>
@@ -60,47 +49,20 @@
 		</HorizontalLayout>
 		<Control height="1" bkcolor="#FF2B2B2B"/>
 		<HorizontalLayout>
-			<VerticalLayout><!--1137 * 680-->
-				<TabLayout name="tab_main">
-					<HorizontalLayout>
-						<Control width="10" />
-						<TabLayout name="tab_home_game" width="205">
-							<VerticalLayout name="list_rencent" vscrollbar="true">
-								<Control height="28" />
-								<Label text="最近启动" height="24" textcolor="#FF000000" font="3" align="left" valign="top"/>
-								<Control height="16" />
-							</VerticalLayout>
-							<VerticalLayout name="list_recommand" vscrollbar="true">
-								<Control height="28" />
-								<Label text="推荐安装" height="24" textcolor="#FF000000" font="3" align="left" valign="top"/>
-								<Control height="16" />
-							</VerticalLayout>
-						</TabLayout>
-						<Control width="1" bkcolor="#FFDDDDE4"/>
-						<PageHome />
-					</HorizontalLayout>
-					<HorizontalLayout>
-						<Control width="10" />
-						<VerticalLayout width="195" name="list_game_tab" vscrollbar="true">
-							<Control height="30" />
-							<Label text="游戏库" height="24" textcolor="#FF000000" font="3" align="left" valign="top"/>
-							<Control height="16" />
-						</VerticalLayout>
-						<Control width="10" />
-						<Control width="1" bkcolor="#FFDDDDE4"/>
-						<PageApp />
-					</HorizontalLayout>
-					<HorizontalLayout><!--对战大厅-->
-						<TabLayout name="tab_duizhan">
-							<PageGameHallWeb />
-							<PageGameRoom />
-						</TabLayout>
-					</HorizontalLayout>
-					<PageLocalGames />
-					<PageContest />
-				</TabLayout>
+			<Control width="40"/>
+			<VerticalLayout><!--模拟器-->
 			</VerticalLayout>
+			<VerticalLayout width="560">
+				<PageWeb height="200"/>
+				<HorizontalLayout height="60">
+					<Label text="房间列表" font="6" textcolor="#FFFFFFFF" align="left" valign="center"/>
+					
+				</HorizontalLayout>
+				<PageRoom />
+			</VerticalLayout>
+			<Control width="40"/>
 		</HorizontalLayout>
+		<Control height="40"/>
 	</VerticalLayout>
 	
 </Window>

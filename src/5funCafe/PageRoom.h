@@ -3,7 +3,7 @@
 
 
 class CPageRoom :
-	public CVerticalLayoutUI,
+	public CHorizontalLayoutUI,
 	public IPage
 {
 public:
