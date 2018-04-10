@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "WndMain.h"
-
+#include "main.h"
 
 
 LRESULT CWndMain::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -50,6 +50,8 @@ LRESULT CWndMain::OnMsgCopyData(WPARAM wParam, LPARAM lParam, BOOL &bHandled)
 
 LRESULT CWndMain::OnMsgSize(WPARAM wParam, LPARAM lParam, BOOL &bHandled)
 {
+	if (g_emuRenderHwnd)
+		::PostMessage(g_emuRenderHwnd, WM_SIZE, 0, 0);
 	bHandled = TRUE;
 	return 0;
 }

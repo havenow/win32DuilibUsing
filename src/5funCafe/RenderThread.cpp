@@ -1,10 +1,14 @@
 #include "RenderThread.h"
 #include "main.h"
+#include "GlobalData.h"
+
+#include <WindowsX.h>
 
 #define UI_TEXT		L"EmuVideoWindowClass"
 
 LRESULT CALLBACK CRenderThread::wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+	CRenderThread* pRenderThread = (CRenderThread*)::GetProp(hWnd, UI_TEXT);
 	switch (msg)
 	{
 	case WM_CLOSE:
@@ -23,6 +27,17 @@ LRESULT CALLBACK CRenderThread::wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPAR
 			printf("VK_F12\n");
 		}
 		break;
+		}
+	}
+	break;
+	case WM_SIZE:
+	{
+		if (pRenderThread && pRenderThread->GetWnd() == hWnd)
+		{
+			g_glesRender.setWH(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+			RECT rect;
+			GetWindowRect(pRenderThread->GetMainWnd(), &rect);
+			MoveWindow(pRenderThread->GetWnd(), 40, 120, rect.right - rect.left - 600, rect.bottom - rect.top - 350, TRUE);
 		}
 	}
 	break;
@@ -103,16 +118,16 @@ bool CRenderThread::InitGLES()
 	//glEnable(GL_DEPTH_TEST);
 	g_glesRender.initShader();
 	g_glesRender.initVideoTexture();
-	/*char strTipsImg[512];
-	sprintf(strTipsImg, "%sloading\\tips_fullscreen.png", g_strExeDir);
+	char strTipsImg[512];
+	sprintf_s(strTipsImg, "%sloading\\tips_fullscreen.png", CGlobalData::Instance()->GetExePath().c_str());
 	g_glesRender.initTipsBuffer(strTipsImg);
 	for (int i = 0; i < 4; i++)
 	{
-		sprintf(strTipsImg, "%sloading\\countdown%d.png", g_strExeDir, i);
+		sprintf_s(strTipsImg, "%sloading\\countdown%d.png", CGlobalData::Instance()->GetExePath().c_str(), i);
 		g_glesRender.initCountDownBuffer(strTipsImg, i);
 	}
-	LoadingBuffer* pLoadBuffer = CGlobal::Instance()->GetLoadBuffer(0);
-	g_glesRender.loopVideo(pLoadBuffer->nWidth, pLoadBuffer->nHeight, (BYTE *)pLoadBuffer->pData);*/
+	LoadingBuffer* pLoadBuffer = CGlobalData::Instance()->GetLoadBuffer(0);
+	g_glesRender.loopVideo(pLoadBuffer->nWidth, pLoadBuffer->nHeight, (BYTE *)pLoadBuffer->pData);
 
 	return 0;
 }
@@ -166,9 +181,8 @@ bool CRenderThread::run()
 		}
 		else
 		{
-			/*int nScale = UNIFORM_SCALE;
-			string strScale = CGlobal::Instance()->GetEmuConfig()->getString("game", FULL_SCALE);
-			sscanf(strScale.c_str(), "%d", &nScale);*/
+			if (IsIconic(m_hMainWnd))
+				continue;
 			if (1/*nScale == UNIFORM_SCALE*/)
 				g_glesRender.render(true);
 			else

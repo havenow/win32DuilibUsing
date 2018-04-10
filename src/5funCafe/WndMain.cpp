@@ -3,6 +3,7 @@
 #include "PageWeb.h"
 #include "PageRoom.h"
 #include "PageEmulator.h"
+#include "main.h"
 
 CWndMain::CWndMain()
 	: m_pPageRoom(NULL)
@@ -63,6 +64,9 @@ void CWndMain::InitWindow()
 {
 	CWndBase::InitWindow();
 	m_pLblGameName->SetText(L"È­»Ê97");
+	g_renderThread.SetMainWnd(m_hWnd);
+	g_renderThread.start();
+	g_renderThread.InvolkEmu();
 }
 
 void CWndMain::OnFinalMessage(HWND hWnd)
@@ -74,6 +78,8 @@ void CWndMain::OnFinalMessage(HWND hWnd)
 
 void CWndMain::Exit()
 {
+	::SendMessage(g_emuRenderHwnd, WM_CLOSE, 0, 0);
+	g_renderThread.join();
 	m_bExit = true;
 	if (m_pPageWeb)
 		m_pPageWeb->Exit();

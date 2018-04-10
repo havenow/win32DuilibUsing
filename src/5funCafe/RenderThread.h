@@ -36,6 +36,8 @@ public:
 	bool	InvolkEmu();
 	void	SetInstance(HINSTANCE hInstance) { m_hInstance = hInstance; }
 	void	SetMainWnd(HWND hWnd) { m_hMainWnd = hWnd; }
+	HWND	GetWnd()const { return m_hWnd; }
+	HWND	GetMainWnd()const { return m_hMainWnd; }
 	int		GetFrameCount() {return m_nFrameCount;}
 	void	SetCoreLoopTime(double	lfTime) { m_lfTime = lfTime; }
 	DWORD	GetThreadId() { return Thread::getThreadId(); }
