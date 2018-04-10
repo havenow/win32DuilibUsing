@@ -8,6 +8,7 @@ CWndMain::CWndMain()
 	: m_pPageRoom(NULL)
 	, m_pPageWeb(NULL)
 	, m_pPageEmulator(NULL)
+	, m_bExit(false)
 {
 	m_dwStyle = UI_WNDSTYLE_FRAME;
 }
@@ -73,6 +74,7 @@ void CWndMain::OnFinalMessage(HWND hWnd)
 
 void CWndMain::Exit()
 {
+	m_bExit = true;
 	if (m_pPageWeb)
 		m_pPageWeb->Exit();
 	if (m_pPageRoom)

@@ -2,6 +2,9 @@
 #include "MsgDefine.h"
 #include "IPage.h"
 
+
+
+
 #define BEGIN_MSG_MAP()	\
 protected: \
 	virtual BOOL ProcessMsg(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lResult)  \
@@ -21,13 +24,13 @@ if (msg == uMsg) \
 	{ \
 
 #define END_USER_MSG \
+	default: break; \
 	} \
+	return TRUE; \
 }
-
-
 //处理自定义消息
 #define DECLARE_USER_MSG(msg, fun) \
-	case msg: lResult = fun(wParam, lParam);
+	case msg: lResult = fun(wParam, lParam); break;
 
 #define END_MSG_MAP() \
 	return FALSE; \
@@ -50,6 +53,8 @@ protected:
 
 	BEGIN_MSG_MAP()
 		DECLARE_MSG(WM_COPYDATA, OnMsgCopyData)
+		DECLARE_MSG(WM_SIZE, OnMsgSize)
+		DECLARE_MSG(WM_TIMER, OnMsgTimer)
 		BEGIN_USER_MSG
 			DECLARE_USER_MSG(WM_MAINWND_MSG_GAMEHALL, OnMsgGameHall)
 			DECLARE_USER_MSG(WM_MAINWND_MSG_PAGE_ROOM, OnMsgPageRoom)
@@ -59,6 +64,8 @@ protected:
 	LRESULT OnMsgGameHall(WPARAM wParam, LPARAM lParam);
 	LRESULT OnMsgPageRoom(WPARAM wParam, LPARAM lParam);
 	LRESULT OnMsgCopyData(WPARAM wParam, LPARAM lParam, BOOL &bHandled);
+	LRESULT OnMsgSize(WPARAM wParam, LPARAM lParam, BOOL &bHandled);
+	LRESULT OnMsgTimer(WPARAM wParam, LPARAM lParam, BOOL &bHandled);
 
 
 	BEGIN_INIT_CTRL()
@@ -82,6 +89,7 @@ protected:
 	void Exit();//程序退出唯一入口
 
 private:
+	bool m_bExit;
 	IPage *m_pPageRoom;
 	IPage *m_pPageWeb;
 	IPage *m_pPageEmulator;
