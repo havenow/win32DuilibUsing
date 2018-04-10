@@ -52,7 +52,7 @@ LRESULT CWndMain::OnMsgSize(WPARAM wParam, LPARAM lParam, BOOL &bHandled)
 {
 	if (g_emuRenderHwnd)
 		::PostMessage(g_emuRenderHwnd, WM_SIZE, 0, 0);
-	bHandled = TRUE;
+	bHandled = FALSE;
 	return 0;
 }
 
