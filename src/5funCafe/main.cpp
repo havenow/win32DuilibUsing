@@ -4,6 +4,10 @@
 #include "stdafx.h"
 #include "5funCafe.h"
 #include "WndMain.h"
+#include "main.h"
+CglesRender		g_glesRender;
+CRenderThread	g_renderThread;
+HWND			g_emuRenderHwnd = nullptr;
 
 bool InitLog();
 bool CheckInstance(HANDLE& hMutex);
@@ -34,7 +38,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	}
 	InitModules(hInstance);
 	CWndMain* pWnd = new CWndMain;
-	HWND hMainWnd = pWnd->Create(NULL);
+	g_emuRenderHwnd = pWnd->Create(NULL);
 	pWnd->CenterWindow();
 	bool bShow = wcscmp(lpCmdLine, L"/bootrun") != 0;
 	pWnd->ShowWindow(bShow, bShow);

@@ -22,6 +22,12 @@
     <Filter Include="UI\Page">
       <UniqueIdentifier>{abc32c0f-74ef-4e22-a1bc-49a565eee48c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Emulator">
+      <UniqueIdentifier>{b0502c9b-5eee-4546-85a1-bf9255b14e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Emulator\utils">
+      <UniqueIdentifier>{ad899da5-9d7f-4088-b46d-09bbdaca9b3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -63,6 +69,24 @@
     <ClInclude Include="PageEmulator.h">
       <Filter>UI\Page</Filter>
     </ClInclude>
+    <ClInclude Include="glesRender.hpp">
+      <Filter>Emulator</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderThread.h">
+      <Filter>Emulator</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Thread.hpp">
+      <Filter>Emulator\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Timestamp.hpp">
+      <Filter>Emulator\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CELLShader.hpp">
+      <Filter>Emulator</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -94,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="PageEmulator.cpp">
       <Filter>UI\Page</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderThread.cpp">
+      <Filter>Emulator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
