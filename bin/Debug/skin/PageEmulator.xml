@@ -1,6 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
 <PageEmulaotrRoot>
-	
+	<VerticalLayout>
+		<Control bkcolor="#FF313131"/>
+		<Control height="10"/>
+		<HorizontalLayout height="180">
+			<VerticalLayout width="380">
+				<Control height="10"/>
+				<HorizontalLayout name="layout_room_setting_opt" height="25">
+					<Option name="opt_basic_key" group="opt_key" width="95" normalimage="emulator\basic_hot.png" selectedimage="emulator\basic_nor.png" selected="true"/>
+					<Option name="opt_compose_key" group="opt_key" width="95" normalimage="emulator\compose_hot.png" selectedimage="emulator\compose_nor.png"/>
+				</HorizontalLayout>
+				<Control height="20"/>
+				<TabLayout name="tab_key_setting">
+					<HorizontalLayout height="125">
+						<Control width="125" height="125" bkimage="emulator/rock.png"/>
+						<Control width="10"/>
+						<Label text="W" textcolor="#FFEEEEEE" align="center" valign="center" float="true" pos="42,2,0,0" width="40" height="20"/>
+						<Label text="A" textcolor="#FFEEEEEE" align="center" valign="center" float="true" pos="0,50,0,0" width="28" height="20"/>
+						<Label text="S" textcolor="#FFEEEEEE" align="center" valign="center" float="true" pos="42,103,0,0" width="40" height="20"/>
+						<Label text="D" textcolor="#FFEEEEEE" align="center" valign="center" float="true" pos="95,52,0,0" width="40" height="20"/>
+						<VerticalLayout width="59" bkimage="emulator/key_bk.png">
+							<Control height="17"/>
+							<Label text="U" textcolor="#FFEEEEEE" align="center" valign="center" height="10"/>
+							<Control height="17"/>
+							<Control width="34" height="36" padding="12,0,0,0" bkimage="emulator/a.png"/>
+							<Control height="15"/>
+							<Label text="轻拳" textcolor="#FFEEEEEE" align="center" valign="center" height="20"/>
+						</VerticalLayout>
+						<Control width="3"/>
+						<VerticalLayout width="59" bkimage="emulator/key_bk.png">
+							<Control height="17"/>
+							<Label text="I" textcolor="#FFEEEEEE" align="center" valign="center" height="10"/>
+							<Control height="17"/>
+							<Control width="34" height="36" padding="12,0,0,0" bkimage="emulator/b.png"/>
+							<Control height="15"/>
+							<Label text="轻脚" textcolor="#FFEEEEEE" align="center" valign="center" height="20"/>
+						</VerticalLayout>
+						<Control width="3"/>
+						<VerticalLayout width="59" bkimage="emulator/key_bk.png">
+							<Control height="17"/>
+							<Label text="J" textcolor="#FFEEEEEE" align="center" valign="center" height="10"/>
+							<Control height="17"/>
+							<Control width="34" height="36" padding="12,0,0,0" bkimage="emulator/c.png"/>
+							<Control height="15"/>
+							<Label text="重拳" textcolor="#FFEEEEEE" align="center" valign="center" height="20"/>
+						</VerticalLayout>
+						<Control width="3"/>
+						<VerticalLayout width="59" bkimage="emulator/key_bk.png">
+							<Control height="17"/>
+							<Label text="K" textcolor="#FFEEEEEE" align="center" valign="center" height="10"/>
+							<Control height="17"/>
+							<Control width="34" height="36" padding="12,0,0,0" bkimage="emulator/d.png"/>
+							<Control height="15"/>
+							<Label text="重脚" textcolor="#FFEEEEEE" align="center" valign="center" height="20"/>
+						</VerticalLayout>
+						<Control width="3"/>
+					</HorizontalLayout>
+					<HorizontalLayout height="125">
+						<Label text="用组合键，你是傻屌吗？" textcolor="#FFEEEEEE" font="4" align="center" valign="center"/>
+					</HorizontalLayout>
+				</TabLayout>
+			</VerticalLayout>
+			<Control />
+			<VerticalLayout width="410" bkimage="emulator/coin_start_bk.png">
+				<HorizontalLayout height="65">
+					<Label text="5" font="4" padding="103,0,0,0"  textcolor="#FFEEEEEE" align="center" valign="center" width="66"/>
+					<Label text="1" font="4" padding="73,0,0,0"  textcolor="#FFEEEEEE" align="center" valign="center" width="66"/>
+				</HorizontalLayout>
+				<HorizontalLayout >
+					<Button name="btn_coin" tooltip="投币" width="66" height="68" padding="103,15,0,0" normalimage="emulator\coin_nor.png" hotimage="emulator\coin_hot.png" pushedimage="emulator\coin_hot.png" showcursor="true"/>
+					<Button name="btn_start" tooltip="开始" width="66" height="68" padding="73,15,0,0" normalimage="emulator\start_nor.png" hotimage="emulator\start_hot.png" pushedimage="emulator\start_hot.png" showcursor="true"/>
+				</HorizontalLayout>
+			</VerticalLayout>
+		</HorizontalLayout>
+	</VerticalLayout>
 </PageEmulaotrRoot>
 </Root>
