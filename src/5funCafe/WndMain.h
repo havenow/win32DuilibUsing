@@ -1,7 +1,7 @@
 #pragma once
 #include "MsgDefine.h"
 #include "IPage.h"
-
+#include "UICefWebkit.h"
 
 
 
@@ -71,6 +71,7 @@ protected:
 	BEGIN_INIT_CTRL()
 		DECLARE_CTRL(m_pLblGameName, L"lbl_game_name")
 		DECLARE_CTRL(m_pLblUserID, L"lbl_user_id")
+		DECLARE_CTRL_TYPE(m_pWebTable, CCefWebkitUI, L"web_table")
 	END_INIT_CTRL()
 
 	BEGIN_BIND_CTRL()
@@ -95,5 +96,6 @@ private:
 	IPage *m_pPageEmulator;
 	CControlUI *m_pLblGameName;
 	CControlUI *m_pLblUserID;
+	CCefWebkitUI *m_pWebTable;
 };
 

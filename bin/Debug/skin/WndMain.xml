@@ -55,6 +55,9 @@
 						<Button float="true" pos="8,28,0,0" width="13" height="13" bkimage="sysbtn/btn_search.png"/>
 					</VerticalLayout>
 				</HorizontalLayout>
+					<HorizontalLayout height="400">
+						<CefWebUI name="web_table"/>
+					</HorizontalLayout>
 				<PageRoom />
 			</VerticalLayout>
 			<Control width="40"/>

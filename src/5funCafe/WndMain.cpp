@@ -10,6 +10,7 @@ CWndMain::CWndMain()
 	, m_pPageWeb(NULL)
 	, m_pPageEmulator(NULL)
 	, m_bExit(false)
+	, m_pWebTable(NULL)
 {
 	m_dwStyle = UI_WNDSTYLE_FRAME;
 }
@@ -39,6 +40,8 @@ CControlUI* CWndMain::CreateControl(LPCTSTR pstrClass)
 		m_pPageEmulator = p;
 		return p;
 	}
+	if (wcscmp(pstrClass, L"CefWebUI") == 0)
+		return new CCefWebkitUI;
 
 	CDialogBuilder dlgBuilder;
 	if (wcscmp(pstrClass, L"PageWeb") == 0)
@@ -67,17 +70,25 @@ void CWndMain::InitWindow()
 	g_renderThread.SetMainWnd(m_hWnd);
 	g_renderThread.start();
 	g_renderThread.InvolkEmu();
+
+	wstring strUrl = m_pWebTable->GetLoadingUrl();
+	if (strUrl.empty())
+	{
+		m_pWebTable->Navigate(L"http://netbattle-cloud.5fun.com/cloud/role.html");
+	}
 }
 
 void CWndMain::OnFinalMessage(HWND hWnd)
 {
 	CWndBase::OnFinalMessage(hWnd);
 	//不调用，会导致消息循环不关闭，程序无法完全关闭
-	::PostQuitMessage(0);//CefQuitMessageLoop();
+	CefQuitMessageLoop(); //::PostQuitMessage(0);//CefQuitMessageLoop();
 }
 
 void CWndMain::Exit()
 {
+	if (m_pWebTable)
+		m_pWebTable->Close();
 	::SendMessage(g_emuRenderHwnd, WM_CLOSE, 0, 0);
 	g_renderThread.join();
 	m_bExit = true;
