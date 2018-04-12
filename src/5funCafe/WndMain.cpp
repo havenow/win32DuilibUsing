@@ -4,6 +4,7 @@
 #include "PageRoom.h"
 #include "PageEmulator.h"
 #include "main.h"
+#include "GlobalData.h"
 
 CWndMain::CWndMain()
 	: m_pPageRoom(NULL)
@@ -72,10 +73,15 @@ void CWndMain::InitWindow()
 	g_renderThread.InvolkEmu();
 
 	wstring strUrl = m_pWebTable->GetLoadingUrl();
-	if (strUrl.empty())
-	{
-		m_pWebTable->Navigate(L"http://netbattle-cloud.5fun.com/cloud/role.html");
+	if (strUrl.empty()) {
+		auto strCoudFile = GetRunPathW() + L"wufancloud\\role.html";
+		OUTPUT_XYLOG(LEVEL_INFO, L"strCoudFile = %s", strCoudFile.c_str());
+		m_pWebTable->Navigate(strCoudFile.c_str());
 	}
+	//if (strUrl.empty())
+	//{
+	//	m_pWebTable->Navigate(L"http://netbattle-cloud.5fun.com/cloud/role.html");
+	//}
 }
 
 void CWndMain::OnFinalMessage(HWND hWnd)

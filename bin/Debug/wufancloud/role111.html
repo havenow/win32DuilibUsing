@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimal-ui,initial-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>悟饭游戏厅-首页</title>
+    <!-- 分享平台获取信息 -->
+    <meta itemprop="name" content="#悟饭游戏厅—发现，属于你的游戏">
+    <meta name="description" itemprop="description" content="悟饭游戏厅—发现，属于你的游戏">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div id="roleTable">
+        <div class="role-box">
+            <ul class="role-list clearfloat" @click='onBtn'>
+                <li>
+                    <p><img src="images/role_01.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_02.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_03.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_04.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_05.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_06.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_07.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_08.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_09.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_10.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_11.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_12.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_13.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_14.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_15.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_16.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_17.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_18.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_19.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_20.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_21.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_22.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_23.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_24.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_25.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_26.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_27.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_28.png"></p>
+                </li>
+                <li>
+                    <p><img src="images/role_29.png"></p>
+                </li>
+            </ul>
+        </div>
+        <!-- 弹层 -->
+        <div class="layer-role" style="display:block;" v-for=''>
+            <div class="role-title" v-for="items in item"><em class="role-close"><img src="images/return_btn.png"></em>item.roleName</div>
+            <ol class="clearfloat">
+                <li><span>外式·轰斧阳</span>
+                    <p>→+B</p>
+                </li>
+                <li>
+                    <span>222</span>
+                    <p>33</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-resource.min.js"></script>
+    <script>
+        /* */
+        var vm = new Vue({
+            el: '#roleTable',
+            data: {
+                item: ''
+            },
+            methods: {
+                onBtn: function() {
+                    $('.role-list li').each(function(index) {
+                        $(this).on('click', function() {
+                            console.log(index);
+                            $('.layer-role').show();
+                        })
+                    });
+                }
+            }
+        });
+        $(function() {
+            $.getJSON("js/role.json", function(resule) {
+                $.each(resule, function(i, item) {
+                    console.log(item.roleName)
+                        //console.log(item.recruitList.recruitName + '++++1')
+                })
+            });
+        });
+        $('.role-close').on('click', function() {
+            $('.layer-role').hide();
+        });
+    </script>
+</body>
+
+</html>
